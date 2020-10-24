@@ -1,0 +1,34 @@
+{
+  "name": "devchallenge-frontend-layout",
+  "version": "1.0.0",
+  "description": "Devchallenge 2020 | Frontend layout nomintation",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "devchallenge2020",
+    "frontend-layout"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.7.0",
+    "browser-sync": "^2.26.13",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.14.1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-scss": "^1.4.0"
+  },
+  "scripts": {
+    "start": "gulp"
+  }
+}

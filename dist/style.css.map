@@ -1,0 +1,1 @@
+{"version":3,"sources":["variables.scss","style.scss"],"names":[],"mappings":"AAAA,MACC,UAAO,CCCR,MACE,sBAAuB;ADHzB,MACC,UAAO","file":"style.css","sourcesContent":[":root {\n\t--main: red;\n}","@import 'variables.scss';\n\n.main {\n  background: var(--main);\n}\n"]}
