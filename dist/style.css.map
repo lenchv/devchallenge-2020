@@ -1,1 +1,1 @@
-{"version":3,"sources":["variables.scss","style.scss"],"names":[],"mappings":"AAAA,MACC,UAAO,CCCR,MACE,sBAAuB;ADHzB,MACC,UAAO","file":"style.css","sourcesContent":[":root {\n\t--main: red;\n}","@import 'variables.scss';\n\n.main {\n  background: var(--main);\n}\n"]}
+{"version":3,"sources":["variables.scss","style.scss"],"names":[],"mappings":"AAAA,MACC,YAAO,CCCR,MACE,sBAAuB;ADHzB,MACC,YAAO","file":"style.css","sourcesContent":[":root {\n\t--main: green;\n}","@import 'variables.scss';\n\n.main {\n  background: var(--main);\n}\n"]}

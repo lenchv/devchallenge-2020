@@ -8,6 +8,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const replace = require('gulp-replace');
 const browserSync = require('browser-sync').create();
+const html = require('gulp-html');
 
 const files = { 
     scssPath: 'src/scss/**/*.scss',
@@ -36,6 +37,12 @@ function jsTask(){
     );
 }
 
+function htmlTask(){
+	return src(files.htmlPath)
+		.pipe(html())
+		.pipe(dest('dist/'));
+}
+
 function cacheBustTask(){
     var cbString = new Date().getTime();
     return src(['src/index.html'])
@@ -48,19 +55,17 @@ function watchTask(){
         server: './dist/'
 	});
 
-    watch([files.scssPath, files.jsPath],
+    watch([files.scssPath, files.jsPath, files.htmlPath],
         {interval: 1000, usePolling: true},
         series(
-            parallel(scssTask, jsTask),
+            parallel(scssTask, jsTask, htmlTask),
             cacheBustTask
         )
-	); 
-
-	watch(files.htmlPath).on('change', browserSync.reload);
+	).on('change', browserSync.reload); 
 }
 
 exports.default = series(
-    parallel(scssTask, jsTask), 
+    parallel(scssTask, jsTask, htmlTask), 
     cacheBustTask,
     watchTask
 );
