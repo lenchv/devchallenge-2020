@@ -1,0 +1,30 @@
+@import 'variables.scss';
+
+$base-width: 1280px;
+$gutter: 12px;
+
+@function col($columns, $size) {
+	@return ($size / $columns) * 100%;
+}
+
+.container {
+	max-width: $base-width;
+	width: 100%;
+	margin: auto;
+}
+
+.row {
+	display: flex;
+	margin: 0 -#{$gutter};
+}
+
+.col {
+	$columns: 12;
+
+	@for $column from 1 through $columns {
+		&-#{$column} {
+			width: col($columns, $column);
+			padding: 0 $gutter;
+		}
+	}
+}

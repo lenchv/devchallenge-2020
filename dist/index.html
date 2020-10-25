@@ -7,37 +7,115 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1">
 
         <title>#devchallenge | 2020</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
-        <link rel="stylesheet" href="./style.css?cb=1603539207507">
+        <link href="https://fonts.googleapis.com/css?family=Lato:700,400,300" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Playfair%20Display:400" rel="stylesheet"> 
+        <link rel="stylesheet" href="./style.css?cb=1603634103950">
     </head>
     <body>
+        <header class="main">
+            <div class="main__menu menu">
+                <div class="menu__blur"></div>
+                <div class="menu__container container">
+                    <div class="row">
+                        <div class="menu__logo col-2">
+                            <img src="assets/logo.svg" alt="SOLIS" class="menu__logo-image">
+                        </div>
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-11">
+                                    <nav class="menu__navigation navigation">
+                                        <a href="#" class="navigation__link">Home</a>
+                                        <a href="#" class="navigation__link">About</a>
+                                        <a href="#" class="navigation__link">Products</a>
+                                        <a href="#" class="navigation__link">Use Cases</a>
+                                        <a href="#" class="navigation__link">Pricing</a>
+                                        <a href="#" class="navigation__link">Resources</a>
+                                    </nav>
+                                </div>
+                                <div class="col-1 menu__theme-button">
+                                    <span class="theme-button">
+                                        <input type="checkbox" id="theme-button" class="theme-button__checkbox">
+                                        <label for="theme-button" class="theme-button__label"></label>
+                                    </span>
+                                </div>
+                            </div>
 
-        <main class="main">
-            <section class="content">
-                <h1>Front-end Boilerplate</h1>
-                <h2>Using Sass and Gulp</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                        <section class="main__content">
+                            <h1 class="main__header">A peer-to-peer stablecoin <i class="main__header-keyword">clearinghouse</i> for the new economy</h1>
+                            <p class="main__description">
+                                We are bringing real solutions to the payments world by leveraging public blockchains.
+                            </p>
+                            <div class="main__button">
+                                <a href="#" class="button">JOIN NOW</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <img src="assets/statistic-image.jpg" alt="sales" />
+                    </div>
+                    <div class="col-8">
+                        <div class="sales-info">
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="sales-info__list sales-list">
+                                        <li class="sales-list__item">
+                                            <div class="sales-item">
+                                                <div class="sales-item__title">
+                                                    <span class="sales-item__title--dollar">$</span>1 tril 
+                                                </div>
+                                                <div class="sales-item__description">
+                                                    Market cap potential
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="sales-list__item">
+                                            <div class="sales-item">
+                                                <div class="sales-item__title">
+                                                    <span class="sales-item__title--dollar">$</span>3.65 mil 
+                                                </div>
+                                                <div class="sales-item__description">
+                                                    Deposited to platform
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="sales-list__item">
+                                            <div class="sales-item">
+                                                <div class="sales-item__title">
+                                                    12
+                                                </div>
+                                                <div class="sales-item__description">
+                                                    Stablecoins
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <p class="sales-info__text">
+                                        Solis group is a new venture created with investments from and collaboration with XBTO International, XBTO Ventures and Phil Potter, formerly of bitfinex. Stablehouse is intended to launch a first-of-its-kind clearing house for stablecoins that seeks to promote the next phase of the market’s development.
+                                    </p>
+                                    <p class="sales-info__text">
+                                        The API-enabled, centralized platform addresses the key issues of inconsistent liquidity, stability and accessibility which are currently preventing the stablecoin market from reaching critical mass. 
+                                    </p>
+                                    <a href="#" class="button">CONTACT SALES</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
 
-                <p>
-                    Here's a quick set-up guide:
-                </p>
+        </header>
 
-                <ul>
-                    <li>Clone Git repo</li>
-                    <li>Install by running "npm install" on the commmand line</li>
-                    <li>Run "gulp" on the command line.</li>
-                </ul>
-
-            </section>
-            
-            <aside>
-                <h3>Project Info</h3>
-                <p>
-                    This is a starter front-end project which will compile SCSS and JS files using Gulp 4.
-                </p>
-            </aside>
-            
-        </main>
-
-        <script src="script.js?cb=1603539207507"></script>
+        <script src="script.js?cb=1603634103950"></script>
     </body>
 </html>

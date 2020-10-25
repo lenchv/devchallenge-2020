@@ -1,5 +1,3 @@
-@import 'variables.scss';
-
-.main {
-  background: var(--main);
-}
+@import 'reset.scss';
+@import 'helpers.scss';
+@import './sections/main.scss';

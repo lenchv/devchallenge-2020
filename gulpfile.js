@@ -17,11 +17,10 @@ const files = {
 };
 
 function scssTask(){    
-    return src(files.scssPath)
+    return src('src/scss/style.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(postcss([ autoprefixer(), cssnano() ]))
-		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write('.'))
         .pipe(dest('./dist/')
     );
