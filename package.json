@@ -27,6 +27,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "gulp-babel": "^8.0.0",
     "gulp-scss": "^1.4.0"
   }
 }

@@ -18,20 +18,9 @@
 	border-top: 1px solid var(--grey);
 
 	&__title {
-		color: var(--primary-dark);
-		font-size: 2.857142857142857em;
-		font-family: $text-font;
-		font-weight: 400;
-		line-height: 1.2em;
+		@include title;
+
 		margin: 0;
-
-		&--keyword {
-			color: var(--tint);
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
 	}
 
 	&__content {

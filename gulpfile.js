@@ -9,6 +9,7 @@ const cssnano = require('cssnano');
 const replace = require('gulp-replace');
 const browserSync = require('browser-sync').create();
 const html = require('gulp-html');
+const babel = require('gulp-babel');
 
 const files = { 
     scssPath: 'src/scss/**/*.scss',
@@ -29,9 +30,14 @@ function scssTask(){
 function jsTask(){
     return src([
         files.jsPath
-	])
+    ])
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(concat('script.js'))
         .pipe(uglify())
+		.pipe(sourcemaps.write('.'))
         .pipe(dest('dist')
     );
 }
