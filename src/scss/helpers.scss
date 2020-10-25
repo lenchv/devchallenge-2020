@@ -57,3 +57,14 @@ $gutter: 12px;
 		}
 	}
 }
+
+.nobreak {
+	white-space: nowrap;
+}
+
+@mixin text {
+	color: var(--primary-dark);
+	font-family: $base-font;
+	font-weight: 300;
+	opacity: 0.8;
+}

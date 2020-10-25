@@ -32,14 +32,12 @@
 	}
 
 	&__description {
-		color: var(--primary-dark);
+		@include text;
+
 		font-size: 1.2857142857142858em;
 		line-height: 1.4444444444444444em;
-		font-family: $base-font;
-		font-weight: 300;
 		margin-top: 24px;
 		margin-bottom: 48px;
-		opacity: 0.8;
 	}
 }
 
@@ -150,6 +148,7 @@
 }
 
 .sales-image {
+	display: block;
 	width: 566px;
 }
 
@@ -159,11 +158,10 @@
 	padding: 42px 11px;
 
 	&__text {
-		font-family: $base-font;
-		font-weight: 300;
+		@include text;
+
 		font-size: 1.2857142857142858em;
 		line-height: 1.4444444444444444em;
-		opacity: 0.8;
 		margin-bottom: 32px;
 		margin-top: 8px;
 		padding-right: 10px;
@@ -208,11 +206,10 @@
 	}
 
 	&__description {
-		font-family: $base-font;
-		font-weight: 300;
+		@include text;
+
 		font-size: 1.2857142857142858em;
 		line-height: 1.4444444444444444em;
-		opacity: 0.8;
 		margin-top: 12px;
 	}
 }
