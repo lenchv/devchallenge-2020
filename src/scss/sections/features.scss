@@ -1,0 +1,78 @@
+@import '../variables.scss';
+@import '../components/calculator.scss';
+
+.features {
+	&__calculator-container {
+		position: relative;
+	}
+
+	&__calculator {
+		position: absolute;
+		top: 0; bottom: 0;
+		width: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__info {
+		position: relative;
+		margin: 44px 0;
+
+		padding: 72px 18px 8px 64px;
+	}
+
+	&__card {
+		margin-bottom: 64px;
+	}
+
+	&__button {
+		padding: 35px 92px;
+		border: 1px solid var(--grey);
+		margin-top: 22px;
+		margin-left: -4px;
+
+		&:hover {
+			background-color: var(--grey-light);
+
+			&:after {
+				margin-top: -.45em;
+				margin-left: 10px;
+			}
+		}
+	}
+
+	&__col {
+		&--offset {
+			padding-left: 36px;
+		}
+	}
+}
+
+.feature {
+	&__title {
+		font-family: $text-font;
+		font-weight: 400;
+		font-size: 1.7142857142857142em;
+		line-height: 2em;
+		color: var(--primary-dark);
+		margin: 0;
+		margin-bottom: 14px;
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&-item {
+			color: var(--primary-dark-08);
+			font-family: $base-font;
+			font-weight: 300;
+			font-size: 1.2857142857142858em;
+			line-height: 1.4444444444444444em;
+			margin-bottom: 12px;
+		}
+	}
+}

@@ -42,7 +42,7 @@
 }
 
 .menu {
-	margin: 31px 0;
+	margin-top: 31px;
 	position: relative;
 
 	&__blur {
@@ -147,16 +147,7 @@
 	}
 }
 
-.sales-image {
-	display: block;
-	width: 566px;
-}
-
 .sales-info {
-	background-color: var(--statistic-background);
-	margin: 55px 0;
-	padding: 42px 11px;
-
 	&__text {
 		@include text;
 

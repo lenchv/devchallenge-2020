@@ -29,35 +29,6 @@ $gutter: 12px;
 	}
 }
 
-.button {
-	text-transform: uppercase;
-	color: var(--secondary);
-	font-family: $base-font;
-	font-weight: 700;
-	font-size: 1.4285714285714286em;
-	line-height: 1em;
-	text-decoration: none;
-	display: inline-block;
-
-	&:after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 0.65em;
-		background: var(--secondary);
-		opacity: 0.3;
-		margin-top: -.45em;
-		margin-left: 10px;
-	}
-
-	&:hover {
-		&:after {
-			margin-top: -.47em;
-			margin-left: 4px;
-		}
-	}
-}
-
 .nobreak {
 	white-space: nowrap;
 }

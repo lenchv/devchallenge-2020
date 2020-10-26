@@ -7,7 +7,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1">
 
         <title>#devchallenge | 2020</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:700,400,300" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./style.css?cb=1572492103778">
     </head>
@@ -58,12 +58,12 @@
                         </section>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row info-box">
                     <div class="col-4">
-                        <img src="assets/statistic-image.jpg" alt="statistic" class="sales-image" />
+                        <img src="assets/statistic-image.jpg" alt="statistic" class="info-box__image" />
                     </div>
                     <div class="col-8">
-                        <div class="sales-info">
+                        <div class="info-box__content sales-info">
                             <div class="row">
                                 <div class="col-6">
                                     <ul class="sales-info__list sales-list">
@@ -201,6 +201,129 @@
                             <p class="video__text">
                                 Our API allows all members to interact with Stablehouse’s platform, from effecting transfers to deposits, withdrawals, creation and redemption and reporting.
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="features">
+                <div class="container">
+                    <div class="row info-box">
+                        <div class="col-4 features__calculator-container">
+                            <img src="assets/features-background.jpg" alt="features" class="info-box__image" />
+                            <div class="features__calculator">
+                                <div class="calculator">
+                                    <div class="calculator__row">
+                                        <div class="calculator__title">
+                                            <span class="calculator__icon-text calculator__icon-text--bitcoin">Sell</span>
+                                            <span class="calculator__icon-arrow"></span>
+                                            <span class="calculator__icon-text calculator__icon-text--tether">Buy</span>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__row">
+                                        <div class="calculator__rate">
+                                            <div class="calculator__label">Rate:</div>
+                                            <div class="calculator__number">
+                                                <span class="calculator__integer">10127.</span>
+                                                <span class="calculator__fraction">49</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__row">
+                                        <div class="row calculator__input-box">
+                                            <div class="col-6 calculator__input-box-column calculator__input-box-column--left">
+                                                <div class="calculator__label">Pay:</div>
+                                                <div class="calculator__input calculator__input--bitcoin">
+                                                    <input class="calculator__input-text" type="text" value="1" >
+                                                </div>
+                                            </div>
+                                            <div class="col-6 calculator__input-box-column calculator__input-box-column--right">
+                                                <div class="calculator__label">Receive:</div>
+                                                <div class="calculator__input calculator__input--tether">
+                                                    <input class="calculator__input-text" type="text" value="0" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="calculator__label">Maker fees:</div>
+                                            </div>
+                                            <div class="col-4">
+                                                <input class="calculator__input-text calculator__input-text--read-only" type="text" disabled >
+                                            </div>
+                                        </div>
+                                        <div class="row calculator__last-input-row">
+                                            <div class="col-8">
+                                                <div class="calculator__label">Exchange fees:</div>
+                                            </div>
+                                            <div class="col-4">
+                                                <input class="calculator__input-text calculator__input-text--read-only" type="text" disabled >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__row">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <input
+                                                    type="radio"
+                                                    name="source"
+                                                    id="exchange"
+                                                    class="calculator__input-radio"
+                                                    value="exchange"
+                                                    checked
+                                                >
+                                                <label class="calculator__label calculator__radio-button" for="exchange">On Exchange</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <input
+                                                    type="radio"
+                                                    name="source"
+                                                    id="wallet"
+                                                    class="calculator__input-radio"
+                                                    value="wallet"
+                                                >
+                                                <label class="calculator__label calculator__radio-button" for="wallet">On Wallet</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="info-box__content features__info">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="features__card feature">
+                                            <h5 class="feature__title">On-Exchange Trading</h5>
+                                            <ul class="feature__list">
+                                                <li class="feature__list-item">Instant</li>
+                                                <li class="feature__list-item">Passive Inventory earns fees</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 features__col features__col--offset">
+                                        <div class="features__card feature">
+                                            <h5 class="feature__title">On-Chain Swaps</h5>
+                                            <ul class="feature__list">
+                                                <li class="feature__list-item">Low Counterparty risk</li>
+                                                <li class="feature__list-item">Direct transfers</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="features__card feature">
+                                            <h5 class="feature__title">Time Settlement Swaps</h5>
+                                            <ul class="feature__list">
+                                                <li class="feature__list-item">LBTC / Lightning and other sidechain swaps</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 features__col features__col--offset">
+                                        <a href="#" class="features__button button">JOIN NOW</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

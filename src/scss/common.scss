@@ -1,0 +1,15 @@
+@import 'variables.scss';
+@import 'components/button.scss';
+
+.info-box {
+	&__image {
+		display: block;
+		width: 566px;
+	}
+
+	&__content {
+		background-color: var(--info-box-background);
+		margin: 55px 0;
+		padding: 42px 11px;
+	}
+}
