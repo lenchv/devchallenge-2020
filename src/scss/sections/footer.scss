@@ -1,0 +1,44 @@
+@import '../variables.scss';
+
+.footer {
+
+	&__container {
+		border-top: 1px solid var(--grey);
+		padding: 24px 0;
+	}
+
+	&__made-by-column {
+		text-align: center;
+	}
+
+	&__made-by,
+	&__copyright {
+		font-family: $base-font;
+		font-weight: 300;
+		line-height: 1.8571428571428572em;
+		color: var(--primary-dark-06);
+		font-size: 1em;
+	}
+
+	&__made-by {
+		margin-right: 12px;
+	}
+
+	&__link {
+		font-family: $base-font;
+		color: var(--primary-dark);
+		line-height: 1.7142857142857142em;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+
+		&--eula {
+			margin: 0 16px;
+		}
+	}
+
+
+	&__eula {
+		margin: 0 -16px;
+		text-align: right;
+	}
+}
