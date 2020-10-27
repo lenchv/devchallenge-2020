@@ -1,0 +1,77 @@
+@import '../variables.scss';
+@import '../helpers.scss';
+
+.contact {
+	margin-bottom: 128px;
+
+	&__container {
+		border-top: 1px solid var(--grey);
+		padding-top: 120px;
+	}
+
+	&__title {
+		@include title;
+
+		margin: 0;
+	}
+
+	&__text {
+		@include text;
+
+		font-size: 1.2857142857142858em;
+		line-height: 1.4444444444444444em;
+	}
+}
+
+.form {
+	&__row {
+		position: relative;
+		width: 100%;
+		margin-bottom: 28px;
+	}
+
+	&__input {
+		border: none;
+		border-bottom: 1px solid var(--primary-dark-01);
+		width: 100%;
+		padding: 12px 0;
+
+		font-family: $text-font;
+		font-style: italic;
+		font-size: 1.2857142857142858em;
+		line-height: 1.1111111111111112em;
+		letter-spacing: 0.08em;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__label {
+		position: absolute;
+		left: 0;
+		bottom: 12px;
+		opacity: 0.5;
+		cursor: text;
+
+		font-family: $text-font;
+		font-style: italic;
+		font-size: 1.2857142857142858em;
+		line-height: 1.1111111111111112em;
+		letter-spacing: 0.08em;
+
+		transition: bottom ease-out .15s;
+	}
+
+	&__input--not-empty+&__label,
+	&__input:focus+&__label {
+		bottom: 4px;
+		font-size: 0.6em;
+	}
+
+	&__button {
+		margin-top: 12px;
+		border: none;
+		background-color: transparent;
+	}
+}

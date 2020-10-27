@@ -70,6 +70,18 @@ const updateArrowState = (arrow, condition) => {
 	}
 };
 
+const setNotEmptyInputs = () => {
+	document.querySelectorAll('.form__input').forEach(input => {
+		input.addEventListener('change', (e) => {
+			if (e.target.value) {
+				e.target.classList.add('form__input--not-empty');
+			} else {
+				e.target.classList.remove('form__input--not-empty');
+			}
+		});
+	});
+};
+
 const initializeSlider = () => {
 	const slideNumber = document.querySelector('.slider-controls__current-number');
 	const arrowLeft = document.querySelector('.slider-controls__arrow--left');
@@ -113,4 +125,5 @@ const initializeSlider = () => {
 document.addEventListener('DOMContentLoaded', () => {
 	initializeYoutubeApi().then(onYoutubeReady);
 	initializeSlider();
+	setNotEmptyInputs();
 });
