@@ -1,19 +1,44 @@
 @import '../variables.scss';
+@import '../helpers.scss';
+@import '../components/slider.scss';
 
 .reviews {
-	&__info {}
+	$info-box-width: 329px;
+	$info-box-margin: 50px;
+
+	margin-top: 151px;
+	margin-bottom: 191px;
+	overflow: hidden;
+	position: relative;
+
+	&__info {
+		width: $info-box-width;
+		margin-right: $info-box-margin;
+		height: 333px;
+		position: relative;
+	}
 
 	&__title {
-
-		&--keyword {
-
-		}
+		@include title;
+		margin: 0;
 	}
 
 	&__description {
-		
+		@include text;
+
+		font-size: 1.2857142857142858em;
+		line-height: 1.4444444444444444em;
 	}
 
-	&__slider {}
+	&__controls {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
 
+	&__slider {
+		position: absolute;
+		top: 0;
+		margin-left: $info-box-width + $info-box-margin;
+	}
 }

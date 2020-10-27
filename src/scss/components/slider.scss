@@ -1,15 +1,125 @@
 @import '../variables.scss';
 
 .slider {
-	&__slider {
+	$slide-width: 468px;
+	$slide-gutter: 10px;
+	overflow: hidden;
 
+	&__container {
+		width: $slide-width * 5;
+		display: flex;
+		margin-left: 0;
+
+		transition: margin ease-in-out .25s;
+	}
+
+	&__slide {
+		position: relative;
+		width: $slide-width;
+		margin: 0 10px;
+		padding: 48px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0; bottom: 0;
+			left: 0; right: 0;
+		}
+
+		&:nth-child(1) {
+			background-image: url(assets/slider/background1.jpg);
+		}
+		&:nth-child(2) {
+			background-image: url(assets/slider/background2.jpg);
+		}
+		&:nth-child(3) {
+			background-image: url(assets/slider/background3.jpg);
+		}
+		&:nth-child(4) {
+			background-image: url(assets/slider/background4.jpg);
+		}
 	}
 
 	&__text {
-
+		color: rgba(255, 255, 255, .8);
+		height: 182px;
+		font-family: $base-font;
+		font-size: 1.1428571428571428em;
+		line-height: 1.625em;
+		margin: 3px 0 32px 0;
+		user-select: none;
 	}
 
 	&__author {
-		
+		font-family: $text-font;
+		font-style: italic;
+		font-size: 1.4285714285714286em;
+		line-height: 1em;
+		letter-spacing: 0.08em;
+		color: #fff;
+	}
+}
+
+.slider-controls {
+	&__number {
+		color: var(--primary-dark);
+		font-family: $text-font;
+	}
+
+	&__current-number {
+		font-size: 1.7142857142857142em;
+		line-height: 2em;
+		display: inline-block;
+		width: 19px;
+		position: relative;
+
+		&:after {
+			content: '/';
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	&__total {
+		color: var(--tint);
+		font-size: 2.857142857142857em;
+		line-height: 0.6em;
+		font-style: italic;
+	}
+
+	&__arrows {
+		text-align: right;
+		white-space: nowrap;
+		user-select: none;
+		line-height: 3em;
+	}
+
+	&__arrow {
+		display: inline-block;
+		margin: 0 16px;
+		cursor: pointer;
+
+		&--left {
+			margin-left: 0;
+		}
+
+		&--right {
+			margin-right: 0;
+		}
+
+		&:hover {
+			opacity: .9;
+		}
+
+		path {
+			fill: var(--tint);
+		}
+
+		&--disabled path {
+			fill: rgba(0, 0, 0, .1);
+		}
 	}
 }

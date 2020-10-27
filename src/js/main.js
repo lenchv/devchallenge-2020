@@ -37,7 +37,6 @@ const onYoutubeReady = () => {
 	});
 	play.addEventListener('click', () => {
 		if (error) {
-			openInNewTab(player.getVideoUrl());
 			return;
 		}
 
@@ -51,11 +50,67 @@ const onYoutubeReady = () => {
 	});
 };
 
-const openInNewTab = (url) => {
-	var win = window.open(url, '_blank');
-	win.focus();
-}
+const getNumber = (str) => {
+	const num = String(str).match('/(\d+)/');
+
+	if (!Array.isArray(num)) {
+		return 0;
+	}
+
+	return +num[1];
+};
+
+const updateArrowState = (arrow, condition) => {
+	const disabledClass = 'slider-controls__arrow--disabled';
+
+	if (condition) {
+		arrow.classList.add(disabledClass);
+	} else if (arrow.classList.contains(disabledClass)) {
+		arrow.classList.remove(disabledClass);
+	}
+};
+
+const initializeSlider = () => {
+	const slideNumber = document.querySelector('.slider-controls__current-number');
+	const arrowLeft = document.querySelector('.slider-controls__arrow--left');
+	const arrowRight = document.querySelector('.slider-controls__arrow--right');
+	const sliderContainer = document.querySelector('.slider__container');
+
+	const SLIDE_WIDTH = 468;
+	const GUTTER_WIDTH = 10;
+	const SLIDE_OFFSET = SLIDE_WIDTH + (GUTTER_WIDTH * 2);
+	const COUNT_OF_SLIDES = sliderContainer.querySelectorAll('.slider__slide').length;
+
+	let slide = getNumber(slideNumber.innerText) || 1;
+
+	const moveTo = (slide) => {
+		const offset = SLIDE_OFFSET * (slide - 1);
+
+		sliderContainer.style.marginLeft = `${-offset}px`;
+		slideNumber.innerText = `${slide}`;
+
+		updateArrowState(arrowLeft, slide === 1);
+		updateArrowState(arrowRight, slide === COUNT_OF_SLIDES);
+	};
+
+	arrowRight.addEventListener('click', (e) => {
+		if (slide >= COUNT_OF_SLIDES) {
+			return;
+		}
+
+		moveTo(++slide);
+	});
+
+	arrowLeft.addEventListener('click', (e) => {
+		if (slide <= 1) {
+			return;
+		}
+
+		moveTo(--slide);
+	});
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 	initializeYoutubeApi().then(onYoutubeReady);
+	initializeSlider();
 });
