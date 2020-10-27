@@ -1,4 +1,5 @@
 :root {
+	--background: #fff;
 	--primary-light: #fff;
 	--primary-dark: #262A3F;
 	--primary-medium: rgba(88, 98, 145, 0.3);
@@ -12,6 +13,18 @@
 	--secondary: #F1897B;
 
 	--info-box-background: rgba(255, 255, 255, 0.9);
+
+	.theme-is-black {
+		--background: #161926;
+		--tint: #689FF2;
+		--secondary: #53F3CD;
+		--primary-dark: #fff;
+
+		--primary-dark-01: rgba(255, 255, 255, 0.1);
+		--primary-dark-03: rgba(255, 255, 255, 0.3);
+		--primary-dark-06: rgba(255, 255, 255, 0.6);
+		--primary-dark-08: rgba(255, 255, 255, 0.8);
+	}
 }
 
 $base-font: Lato, sans-serif;

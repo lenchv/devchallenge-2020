@@ -9,3 +9,7 @@
 @import './sections/reviews.scss';
 @import './sections/contact.scss';
 @import './sections/footer.scss';
+
+body {
+	background-color: var(--background);
+}

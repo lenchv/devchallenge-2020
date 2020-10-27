@@ -122,8 +122,22 @@ const initializeSlider = () => {
 	});
 };
 
+const toggleTheme = () => {
+	const blackThemeClass = 'theme-is-black';
+
+	const button = document.getElementById('theme-button');
+	button.addEventListener('change', (e) => {
+		if (e.target.checked) {
+			document.body.classList.add(blackThemeClass);
+		} else {
+			document.body.classList.remove(blackThemeClass);
+		}
+	});
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 	initializeYoutubeApi().then(onYoutubeReady);
 	initializeSlider();
 	setNotEmptyInputs();
+	toggleTheme();
 });
