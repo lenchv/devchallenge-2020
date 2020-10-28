@@ -31,6 +31,7 @@
 	}
 
 	&__input {
+		color: var(--primary-dark);
 		border: none;
 		border-bottom: 1px solid var(--primary-dark-01);
 		width: 100%;
@@ -41,6 +42,7 @@
 		font-size: 1.2857142857142858em;
 		line-height: 1.1111111111111112em;
 		letter-spacing: 0.08em;
+		background: transparent;
 
 		&:focus {
 			outline: none;
@@ -61,6 +63,8 @@
 		letter-spacing: 0.08em;
 
 		transition: bottom ease-out .15s;
+
+		color: var(--contact-text);
 	}
 
 	&__input--not-empty+&__label,

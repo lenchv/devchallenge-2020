@@ -1,4 +1,4 @@
-const { src, dest, watch, series, parallel } = require('gulp');
+const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
@@ -6,31 +6,32 @@ const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const replace = require('gulp-replace');
 const browserSync = require('browser-sync').create();
 const html = require('gulp-html');
 const babel = require('gulp-babel');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache')
+const del = require('del');
+const svgSprite = require('gulp-svg-sprite');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
 
-const files = { 
-    scssPath: 'src/scss/**/*.scss',
-	jsPath: 'src/js/**/*.js',
-	htmlPath: 'src/index.html'
-};
-
-function scssTask(){    
-    return src('src/scss/style.scss')
+const scss = () => {
+    return gulp.src('src/scss/style.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-		.pipe(postcss([ autoprefixer(), cssnano() ]))
-		.pipe(sourcemaps.write('.'))
-        .pipe(dest('./dist/')
-    );
-}
+        .pipe(postcss([ autoprefixer(), cssnano() ]))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('./dist/'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+};
 
-function jsTask(){
-    return src([
-        files.jsPath
-    ])
+gulp.task('scss', scss);
+
+gulp.task('js', () => {
+    return gulp.src('src/js/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['@babel/env']
@@ -38,39 +39,83 @@ function jsTask(){
         .pipe(concat('script.js'))
         .pipe(uglify())
 		.pipe(sourcemaps.write('.'))
-        .pipe(dest('dist')
+        .pipe(gulp.dest('dist')
     );
-}
+});
 
-function htmlTask(){
-	return src(files.htmlPath)
+gulp.task('html', () => {
+	return gulp.src('src/index.html')
 		.pipe(html())
-		.pipe(dest('dist/'));
-}
+		.pipe(gulp.dest('dist/'));
+});
 
-function cacheBustTask(){
-    var cbString = new Date().getTime();
-    return src(['src/index.html'])
-        .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
-        .pipe(dest('dist'));
-}
+gulp.task('images', () => {
+    return gulp.src('src/assets/images/**/*.jpg')
+        .pipe(cache(imagemin({
+            jpegRecompress: true,
+            mozjpeg: true,
+        })))
+        .pipe(gulp.dest('./dist/assets/images'));
+});
 
-function watchTask(){
-	browserSync.init({
-        server: './dist/'
-	});
+gulp.task('svgSprite', () => {
+    return gulp.src('src/assets/icons/*.svg')
+        .pipe(cheerio({
+            run: function ($) {
+                $('[fill]').removeAttr('fill');
+                $('[stroke]').removeAttr('stroke');
+                $('[style]').removeAttr('style');
+            },
+            parserOptions: {xmlMode: true}
+        }))
+        .pipe(replace('&gt;', '>'))
+        .pipe(svgSprite({
+                mode: {
+                    defs: {
+                        sprite: '../icons.svg'
+                    }
+                },
+            }
+        ))
+        .on('error', console.error)
+        .pipe(gulp.dest('dist/assets/icons'));
+});
 
-    watch([files.scssPath, files.jsPath, files.htmlPath],
-        {interval: 1000, usePolling: true},
-        series(
-            parallel(scssTask, jsTask, htmlTask),
-            cacheBustTask
-        )
-	).on('change', browserSync.reload); 
-}
+gulp.task('browserSync', () => {
+    browserSync.init({
+        server: {
+            baseDir: './dist/'
+        }
+    });
+});
 
-exports.default = series(
-    parallel(scssTask, jsTask, htmlTask), 
-    cacheBustTask,
-    watchTask
+gulp.task('clean:dist', (callback) => {
+    del.sync('dist');
+    callback();
+});
+
+gulp.task('cache:clear', (callback) => {
+    return cache.clearAll(callback);
+});
+
+gulp.task('serve', () => {
+    browserSync.init({
+        server: "./dist"
+    });
+    gulp.watch('src/scss/**/*.scss', gulp.series('scss')).on('change', browserSync.reload);
+    gulp.watch('src/js/**/*.js', gulp.series('js')).on('change', browserSync.reload);
+    gulp.watch('src/index.html', gulp.series('html')).on('change', browserSync.reload);
+});
+
+exports.build = gulp.series(
+    'clean:dist',
+    'cache:clear',
+    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite'),
+);
+
+exports.start = gulp.series('browserSync');
+
+exports.watch = gulp.series(
+    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite'),
+    'serve'
 );

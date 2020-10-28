@@ -3,8 +3,8 @@
 .main {
 	width: 100%;
 
-	background-image: url('assets/first-screen-image.jpg');
-	background-size: contain;
+	background-image: var(--first-screen-image);
+	background-size: cover;
 	background-position: center top;
 	background-repeat: no-repeat;
 
@@ -51,12 +51,7 @@
 		bottom: 0; right: 0;
 		z-index: 0;
 
-		background: linear-gradient(
-			270deg,
-			rgba(255, 255, 255, 0.5) 0%,
-			rgba(255, 255, 255, 0.244636) 24.1%,
-			rgba(255, 255, 255, 0) 47.19%
-		), rgba(255, 255, 255, 0.02);
+		background: var(--menu-gradient);
 		transform: matrix(1, 0, 0, -1, 0, 0);
 		backdrop-filter: blur(4px);
 	}
@@ -73,7 +68,9 @@
 
 		&-image {
 			height: 100%;
-			width: auto;
+			width: 105px;
+
+			fill: #fff;
 		}
 	}
 
@@ -121,25 +118,21 @@
 		width: 100%;
 
 		cursor: pointer;
-
-		&:after {
-			content: '';
-			display: block;
-			background-image: url(assets/icons/icon-moon.svg);
-			background-size: cover;
-			width: 18px;
-			height: 18px;
-		}
 	}
 
-	&__checkbox:checked~.theme-button__label {
-		padding: 6px;
+	&__icon {
+		display: none;
+		width: 18px;
+		height: 18px;
+		fill: #fff;
+	}
 
-		&:after {
-			background-image: url(assets/icons/sun-icon.svg);
-			width: 20px;
-			height: 20px;
-		}
+	&__checkbox:checked + &__label > &__icon--moon {
+		display: block;
+	}
+
+	&__checkbox:not(:checked) + &__label > &__icon--sun {
+		display: block;
 	}
 
 	&:hover {

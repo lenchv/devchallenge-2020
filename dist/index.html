@@ -2,6 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="frontend layout">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="theme-color" content="#1843c1" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1">
@@ -9,16 +10,16 @@
         <title>#devchallenge | 2020</title>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./style.css?cb=1603838262660">
+        <link rel="stylesheet" href="./style.css?cb=1572492103778">
     </head>
-    <body>
+    <body class="theme-is-black">
         <header class="main">
             <div class="main__menu menu">
                 <div class="menu__blur"></div>
                 <div class="menu__container container">
                     <div class="row">
                         <div class="menu__logo col-2">
-                            <img src="assets/logo.svg" alt="SOLIS" class="menu__logo-image">
+                            <svg class="menu__logo-image"><use xlink:href="assets/icons/icons.svg#logo"></use></svg>
                         </div>
                         <div class="col-10">
                             <div class="row">
@@ -35,7 +36,14 @@
                                 <div class="col-1 menu__theme-button">
                                     <span class="theme-button">
                                         <input type="checkbox" id="theme-button" class="theme-button__checkbox">
-                                        <label for="theme-button" class="theme-button__label"></label>
+                                        <label for="theme-button" class="theme-button__label">
+                                            <svg class="theme-button__icon theme-button__icon--sun">
+                                                <use xlink:href="assets/icons/icons.svg#sun-icon"></use>
+                                            </svg>
+                                            <svg class="theme-button__icon theme-button__icon--moon">
+                                                <use xlink:href="assets/icons/icons.svg#icon-moon"></use>
+                                            </svg>
+                                        </label>
                                     </span>
                                 </div>
                             </div>
@@ -53,14 +61,14 @@
                                 We are bringing real solutions to the payments world by leveraging public blockchains.
                             </p>
                             <div class="main__button">
-                                <a href="#" class="button">JOIN NOW</a>
+                                <a href="#join-now" class="button">JOIN NOW</a>
                             </div>
                         </section>
                     </div>
                 </div>
                 <div class="row info-box">
                     <div class="col-4">
-                        <img src="assets/statistic-image.jpg" alt="statistic" class="info-box__image" />
+                        <img src="assets/images/statistic-image.jpg" alt="statistic" class="info-box__image" />
                     </div>
                     <div class="col-8">
                         <div class="info-box__content sales-info">
@@ -106,7 +114,7 @@
                                     <p class="sales-info__text">
                                         The API-enabled, centralized platform addresses the key issues of inconsistent liquidity, stability and accessibility which are currently preventing the stablecoin market from reaching critical mass. 
                                     </p>
-                                    <a href="#" class="sales-info__button button">CONTACT SALES</a>
+                                    <a href="#contact-sales" class="sales-info__button button" aria-label="CONTACT SALES">CONTACT SALES</a>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +176,10 @@
                 <div class="quote">
                     <div class="row">
                         <div class="col-10">
-                            <q class="quote__text">Solis Group serves as a liquidity nexus that gives stablecoin issuers, holders and exchanges certainty over access and liquidity</q>
+                            <q class="quote__text">
+                                <svg class="quote__icon"><use xlink:href="assets/icons/icons.svg#quote-icon"></use></svg>
+                                Solis Group serves as a liquidity nexus that gives stablecoin issuers, holders and exchanges certainty over access and liquidity
+                            </q>
                             <cite class="quote__author">
                                 Lennon Burnett, Solis Group CEO
                             </cite>  
@@ -188,9 +199,12 @@
                                         height="502"
                                         src="https://www.youtube.com/embed/vnbN9V_2Guk?enablejsapi=1&&autohide=1=0&controls=0&modestbranding=1"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        class="player__iframe--hidden"
                                     ></iframe>
-                                    <img class="player__screen-placeholder" alt="video" src="assets/screensaver-video.jpg" />
-                                    <button class="player__control player__control--play"></button>
+                                    <img class="player__screen-placeholder" alt="video" src="assets/images/screensaver-video.jpg" />
+                                    <button class="player__control player__control--play" aria-label="PLAY">
+                                        <svg class="player__icon"><use xlink:href="assets/icons/icons.svg#play"></use></svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -205,18 +219,24 @@
                     </div>
                 </div>
             </section>
-            <section class="features">
+            <section id="join-now" class="features">
                 <div class="container">
                     <div class="row info-box">
                         <div class="col-4 features__calculator-container">
-                            <img src="assets/features-background.jpg" alt="features" class="info-box__image" />
+                            <img src="assets/images/features-background.jpg" alt="features" class="info-box__image" />
                             <div class="features__calculator">
                                 <div class="calculator">
                                     <div class="calculator__row">
                                         <div class="calculator__title">
-                                            <span class="calculator__icon-text calculator__icon-text--bitcoin">Sell</span>
-                                            <span class="calculator__icon-arrow"></span>
-                                            <span class="calculator__icon-text calculator__icon-text--tether">Buy</span>
+                                            <span class="calculator__icon-text">
+                                                Sell
+                                                <svg class="calculator__icon"><use xlink:href="assets/icons/icons.svg#bitcoin"></use></svg>
+                                            </span>
+                                            <svg class="calculator__icon-arrow"><use xlink:href="assets/icons/icons.svg#arrow"></use></svg>
+                                            <span class="calculator__icon-text">
+                                                Buy
+                                                <svg class="calculator__icon"><use xlink:href="assets/icons/icons.svg#tether"></use></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="calculator__row">
@@ -232,33 +252,35 @@
                                         <div class="calculator__input-box">
                                             <div class="row">
                                                 <div class="col-6 calculator__input-box-column calculator__input-box-column--left">
-                                                    <div class="calculator__label">Pay:</div>
-                                                    <div class="calculator__input calculator__input--bitcoin">
-                                                        <input class="calculator__input-text" type="text" value="1" >
+                                                    <label class="calculator__label" for="pay">Pay:</label>
+                                                    <div class="calculator__input">
+                                                        <input class="calculator__input-text" id="pay" type="text" value="1" >
+                                                        <svg class="calculator__input-icon"><use xlink:href="assets/icons/icons.svg#bitcoin"></use></svg>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 calculator__input-box-column calculator__input-box-column--right">
-                                                    <div class="calculator__label">Receive:</div>
-                                                    <div class="calculator__input calculator__input--tether">
-                                                        <input class="calculator__input-text" type="text" value="0" >
+                                                    <label class="calculator__label" for="receive">Receive:</label>
+                                                    <div class="calculator__input">
+                                                        <input class="calculator__input-text" type="text" id="receive" value="0" >
+                                                        <svg class="calculator__input-icon"><use xlink:href="assets/icons/icons.svg#tether"></use></svg>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-8">
-                                                <div class="calculator__label">Maker fees:</div>
+                                                <label class="calculator__label" for="maker_fees">Maker fees:</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="calculator__input-text calculator__input-text--read-only" type="text" disabled >
+                                                <input class="calculator__input-text calculator__input-text--read-only" id="maker_fees" type="text" disabled >
                                             </div>
                                         </div>
                                         <div class="row calculator__last-input-row">
                                             <div class="col-8">
-                                                <div class="calculator__label">Exchange fees:</div>
+                                                <label class="calculator__label" for="exchange_fees">Exchange fees:</label>
                                             </div>
                                             <div class="col-4">
-                                                <input class="calculator__input-text calculator__input-text--read-only" type="text" disabled >
+                                                <input class="calculator__input-text calculator__input-text--read-only" id="exchange_fees" type="text" disabled >
                                             </div>
                                         </div>
                                     </div>
@@ -295,7 +317,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="features__card feature">
-                                            <h5 class="feature__title">On-Exchange Trading</h5>
+                                            <h4 class="feature__title">On-Exchange Trading</h4>
                                             <ul class="feature__list">
                                                 <li class="feature__list-item">Instant</li>
                                                 <li class="feature__list-item">Passive Inventory earns fees</li>
@@ -304,7 +326,7 @@
                                     </div>
                                     <div class="col-6 features__col features__col--offset">
                                         <div class="features__card feature">
-                                            <h5 class="feature__title">On-Chain Swaps</h5>
+                                            <h4 class="feature__title">On-Chain Swaps</h4>
                                             <ul class="feature__list">
                                                 <li class="feature__list-item">Low Counterparty risk</li>
                                                 <li class="feature__list-item">Direct transfers</li>
@@ -315,14 +337,14 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="features__card feature">
-                                            <h5 class="feature__title">Time Settlement Swaps</h5>
+                                            <h4 class="feature__title">Time Settlement Swaps</h4>
                                             <ul class="feature__list">
                                                 <li class="feature__list-item">LBTC / Lightning and other sidechain swaps</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-6 features__col features__col--offset">
-                                        <a href="#" class="features__button button">JOIN NOW</a>
+                                        <a href="#" class="features__button button" aria-label="join now">JOIN NOW</a>
                                     </div>
                                 </div>
                             </div>
@@ -346,16 +368,12 @@
                                     <span class="slider-controls__total">4</span>
                                 </div>
                                 <div class="col-6 slider-controls__arrows">
-                                    <i class="slider-controls__arrow slider-controls__arrow--left slider-controls__arrow--disabled">
-                                        <svg width="48" height="12" viewBox="0 0 48 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 11.7734L0 5.99993L10 0.226432V4.99993L48 4.99993V6.99993L10 6.99993V11.7734Z"/>
-                                        </svg>
-                                    </i>
-                                    <i class="slider-controls__arrow slider-controls__arrow--right">
-                                        <svg width="48" height="12" viewBox="0 0 48 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M38 0.226569L48 6.00007L38 11.7736L38 7.00007L-1.18432e-06 7.00007L-8.34626e-07 5.00007L38 5.00007L38 0.226569Z"/>
-                                        </svg>
-                                    </i>
+                                    <svg class="slider-controls__arrow slider-controls__arrow--left slider-controls__arrow--disabled">
+                                        <use xlink:href="assets/icons/icons.svg#arrow-left"></use>
+                                    </svg>
+                                    <svg class="slider-controls__arrow slider-controls__arrow--right">
+                                        <use xlink:href="assets/icons/icons.svg#arrow-right"></use>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -390,7 +408,7 @@
                     </div>
                 </div>
             </section>
-            <section class="contact">
+            <section id="contact-sales" class="contact">
                 <div class="container contact__container">
                     <div class="row">
                         <div class="col-6">
@@ -415,7 +433,7 @@
                                     <input type="text" class="form__input" id="tell_more">
                                     <label for="tell_more" class="form__label">Tell more</label>
                                 </div>
-                                <button class="form__button button">SEND REQUEST</button>
+                                <button class="form__button button" aria-label="SEND REQUEST">SEND REQUEST</button>
                             </form>
                         </div>
                     </div>

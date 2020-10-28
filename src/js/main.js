@@ -13,6 +13,7 @@ const initializeYoutubeApi = () => new Promise((resolve, reject) => {
 const onYoutubeReady = () => {
 	const play = document.querySelector('.player__control--play');
 	const screensaver = document.querySelector('.player__screen-placeholder');
+	const iframe = document.getElementById('video');
 	let ready = false;
 	let error = false;
 
@@ -22,6 +23,7 @@ const onYoutubeReady = () => {
 		) {
 			screensaver.style.display = 'block';
 			play.style.display = 'block';
+			iframe.classList.add('player__iframe--hidden');
 		}
 	};
 	const player = new YT.Player('video', {
@@ -35,6 +37,7 @@ const onYoutubeReady = () => {
 		  'onStateChange': onPlayerStateChange
         }
 	});
+
 	play.addEventListener('click', () => {
 		if (error) {
 			return;
@@ -46,6 +49,7 @@ const onYoutubeReady = () => {
 
 		screensaver.style.display = 'none';
 		play.style.display = 'none';
+		iframe.classList.remove('player__iframe--hidden');
 		player.playVideo();
 	});
 };
@@ -135,9 +139,27 @@ const toggleTheme = () => {
 	});
 };
 
+const svgPollyfill = () => {
+	if (!/MSIE|Trident/.test(navigator.userAgent)) {
+		return;
+	}
+	
+	[].forEach.call(document.querySelectorAll('svg'), svg => {
+		const use = svg.querySelector('use'); 
+	
+		if (use) {
+			const object = document.createElement('object');
+			object.data = use.getAttribute('xlink:href');
+			object.className = svg.getAttribute('class');
+			svg.parentNode.replaceChild(object, svg);
+		}
+	});
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 	initializeYoutubeApi().then(onYoutubeReady);
 	initializeSlider();
 	setNotEmptyInputs();
 	toggleTheme();
+	svgPollyfill();
 });

@@ -1,6 +1,8 @@
 :root {
+
 	--background: #fff;
 	--primary-light: #fff;
+	--black: #000;
 	--primary-dark: #262A3F;
 	--primary-medium: rgba(88, 98, 145, 0.3);
 	--primary-dark-01: rgba(38, 42, 63, 0.1);
@@ -14,7 +16,22 @@
 
 	--info-box-background: rgba(255, 255, 255, 0.9);
 
+	--video-icon: #262A3F;
+	--video-control: rgba(88, 98, 145, 0.3);
+
+	--first-screen-image: url('assets/images/first-screen-image.jpg');
+
+	--menu-gradient: linear-gradient(
+		270deg,
+		rgba(255, 255, 255, 0.5) 0%,
+		rgba(255, 255, 255, 0.244636) 24.1%,
+		rgba(255, 255, 255, 0) 47.19%
+	), rgba(255, 255, 255, 0.02);
+
+	--contact-text: #262A3F;
+
 	.theme-is-black {
+		--black: #fff;
 		--background: #161926;
 		--tint: #689FF2;
 		--secondary: #53F3CD;
@@ -24,6 +41,24 @@
 		--primary-dark-03: rgba(255, 255, 255, 0.3);
 		--primary-dark-06: rgba(255, 255, 255, 0.6);
 		--primary-dark-08: rgba(255, 255, 255, 0.8);
+
+		--grey: #515773;
+
+		--first-screen-image: url('assets/images/first-screen-image-black.jpg');
+
+		--menu-gradient: linear-gradient(
+			270deg,
+			rgba(22, 25, 38, 0.5) 0%,
+			rgba(22, 25, 38, 0) 24.1%,
+			rgba(22, 25, 38, 0) 47.19%
+		), rgba(22, 25, 38, 0.02);
+
+		--info-box-background: rgba(22, 25, 38, 0.9);
+
+		--video-icon: #689FF2;
+		--video-control: rgba(104, 159, 242, 0.3);
+
+		--contact-text: #BBBCC1;
 	}
 }
 

@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .quote {
-	background: url('assets/quote-background.jpg');
+	background: url('assets/images/quote-background.jpg');
 	background-size: contain;
 	padding: 101px 129px;
 	color: var(--primary-light);
@@ -14,23 +14,20 @@
 		text-indent: 0;
 		position: relative;
 		letter-spacing: 0.04em;
+	}
 
-		&:before {
-			content: '';
-			display: inline-block;
-			background-image: url(assets/icons/quote-icon.svg);
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100px;
-			height: 81px;
-			position: absolute;
-			top: -34px;
-			left: -59px;
-		}
 
-		&:after {
-			content: '';
-		}
+	&__icon {
+		display: inline-block;
+		width: 100px;
+		height: 81px;
+		position: absolute;
+		top: -34px;
+		left: -59px;
+
+		stroke: var(--secondary);
+		fill: none;
+		opacity: 0.3;
 	}
 
 	&__author {
