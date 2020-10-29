@@ -15,6 +15,8 @@ const del = require('del');
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const browserify = require('gulp-browserify');
+const polyfiller = require('gulp-polyfiller');
 
 const scss = () => {
     return gulp.src('src/scss/style.scss')
@@ -36,6 +38,8 @@ gulp.task('js', () => {
         .pipe(babel({
             presets: ['@babel/env']
         }))
+        .pipe(browserify())
+        .pipe(polyfiller(['Promise']))
         .pipe(concat('script.js'))
         .pipe(uglify())
 		.pipe(sourcemaps.write('.'))
