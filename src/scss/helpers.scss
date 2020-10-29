@@ -3,34 +3,37 @@
 $base-width: calc(1280px - 128px);
 $gutter: 12px;
 
-@function col($columns, $size) {
+@function colWidth($columns, $size) {
 	@return ($size / $columns) * 100%;
 }
 
-.container {
-	max-width: $base-width;
-	width: 100%;
-	margin: auto;
-}
-
-.row {
-	display: flex;
-	margin: 0 -#{$gutter};
-}
-
-.col {
-	$columns: 12;
-
-	@for $column from 1 through $columns {
-		&-#{$column} {
-			width: col($columns, $column);
-			padding: 0 $gutter;
+@mixin column($prefix: '') {
+	.col#{$prefix} {
+		$columns: 12;
+	
+		@for $column from 1 through $columns {
+			&-#{$column} {
+				flex-basis: colWidth($columns, $column);
+				padding: 0 $gutter;
+			}
 		}
 	}
 }
 
-.nobreak {
-	white-space: nowrap;
+@mixin responsive($prefix: '') {
+	@include column($prefix);
+
+	.hidden#{$prefix} {
+		display: none;
+	}
+
+	.row#{$prefix}-vertical {
+		flex-direction: column;
+	}
+
+	.text-center#{$prefix} {
+		text-align: center;
+	}
 }
 
 @mixin text {
@@ -54,4 +57,37 @@ $gutter: 12px;
 			text-decoration: underline;
 		}
 	}
+}
+
+.container {
+	max-width: $base-width;
+	width: 100%;
+	margin: auto;
+}
+
+.row {
+	display: flex;
+	margin: 0 -#{$gutter};
+}
+
+@include responsive;
+
+@media only screen and (max-width: $breakpoint-xs) {
+	@include responsive('-xs');
+}
+
+@media only screen and (max-width: $breakpoint-sm) {
+	@include responsive('-sm');
+}
+
+@media only screen and (max-width: $breakpoint-md) {
+	@include responsive('-md');
+}
+
+@media only screen and (max-width: $breakpoint-lg) {
+	@include responsive('-lg');
+}
+
+.nobreak {
+	white-space: nowrap;
 }

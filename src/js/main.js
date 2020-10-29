@@ -10,11 +10,40 @@ const initializeYoutubeApi = () => new Promise((resolve, reject) => {
 	window.onYouTubeIframeAPIReady = resolve;
 });
 
-const onYoutubeReady = () => {
+const initializePlayer = (iframeId, onPlayerStateChange, onError) => {
+	let player;
+
+	return () => Promise.resolve().then(
+		() => {
+			if (!window.YT) {
+				return initializeYoutubeApi();
+			}
+		}
+	).then(() => new Promise((resolve, reject) => {
+		try {
+			if (player) {
+				return resolve(player);
+			}
+
+			player = new YT.Player(iframeId, {
+				events: {
+					'onReady': () => {
+						resolve(player);
+					},
+					'onError': onError,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	}));
+};
+
+const initializeVideo = () => {
 	const play = document.querySelector('.player__control--play');
 	const screensaver = document.querySelector('.player__screen-placeholder');
 	const iframe = document.getElementById('video');
-	let ready = false;
 	let error = false;
 
 	const onPlayerStateChange = (event) => {
@@ -26,31 +55,20 @@ const onYoutubeReady = () => {
 			iframe.classList.add('player__iframe--hidden');
 		}
 	};
-	const player = new YT.Player('video', {
-        events: {
-		'onReady': () => {
-			ready = true;
-		},
-		'onError': () => {
-			error = true;
-		},
-		  'onStateChange': onPlayerStateChange
-        }
+
+	const getPlayer = initializePlayer('video', onPlayerStateChange, () => {
+		error = true;
 	});
 
 	play.addEventListener('click', () => {
-		if (error) {
-			return;
-		}
-
-		if (!ready) {
-			return;
-		}
-
-		screensaver.style.display = 'none';
-		play.style.display = 'none';
-		iframe.classList.remove('player__iframe--hidden');
-		player.playVideo();
+		getPlayer().then(player => {
+			screensaver.style.display = 'none';
+			play.style.display = 'none';
+			iframe.classList.remove('player__iframe--hidden');
+			player.playVideo();
+		}).catch(error => {
+			console.error(error);
+		});
 	});
 };
 
@@ -157,7 +175,7 @@ const svgPollyfill = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-	initializeYoutubeApi().then(onYoutubeReady);
+	initializeVideo();
 	initializeSlider();
 	setNotEmptyInputs();
 	toggleTheme();
