@@ -61,6 +61,21 @@
 		letter-spacing: 0.08em;
 		color: #fff;
 	}
+
+	@media only screen and (max-width: $breakpoint-xs) {
+		&__slide {
+			padding: 24px;
+			width: 95vw;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
 }
 
 .slider-controls {

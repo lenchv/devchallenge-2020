@@ -112,13 +112,16 @@ const initializeSlider = () => {
 
 	const SLIDE_WIDTH = 468;
 	const GUTTER_WIDTH = 10;
-	const SLIDE_OFFSET = SLIDE_WIDTH + (GUTTER_WIDTH * 2);
+	const getSlideWidth = width => width + (GUTTER_WIDTH * 2);
 	const COUNT_OF_SLIDES = sliderContainer.querySelectorAll('.slider__slide').length;
 
 	let slide = getNumber(slideNumber.innerText) || 1;
 
 	const moveTo = (slide) => {
-		const offset = SLIDE_OFFSET * (slide - 1);
+		const isMobile = window.innerWidth <= 600;
+		const offset = getSlideWidth(
+			isMobile ? (window.innerWidth * 0.95) : SLIDE_WIDTH
+		) * (slide - 1);
 
 		sliderContainer.style.marginLeft = `${-offset}px`;
 		slideNumber.innerText = `${slide}`;
