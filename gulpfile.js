@@ -49,6 +49,11 @@ gulp.task('html', () => {
 		.pipe(gulp.dest('dist/'));
 });
 
+gulp.task('favicon', () => {
+	return gulp.src('src/favicon.ico')
+		.pipe(gulp.dest('dist/'));
+});
+
 gulp.task('images', () => {
     return gulp.src('src/assets/images/**/*.jpg')
         .pipe(cache(imagemin({
@@ -110,12 +115,12 @@ gulp.task('serve', () => {
 exports.build = gulp.series(
     'clean:dist',
     'cache:clear',
-    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite'),
+    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite', 'favicon'),
 );
 
 exports.start = gulp.series('browserSync');
 
 exports.watch = gulp.series(
-    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite'),
+    gulp.parallel('scss', 'js', 'html', 'images', 'svgSprite', 'favicon'),
     'serve'
 );
