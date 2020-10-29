@@ -1,6 +1,21 @@
 @import 'variables.scss';
 @import 'components/button.scss';
 
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	font-size: 14px;
+	background-color: var(--background);
+
+	@media only screen and (max-width: $breakpoint-md) {
+		font-size: 12px;
+	}
+}
+
 .info-box {
 	&__image {
 		display: block;

@@ -33,12 +33,33 @@
 
 		&--eula {
 			margin: 0 16px;
+
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 
-
 	&__eula {
-		margin: 0 -16px;
 		text-align: right;
+	}
+
+	&__row {
+		width: 100%;
+	}
+
+	@media only screen and (max-width: $breakpoint-sm) {
+		&__row {
+			flex-direction: column-reverse;
+		}
+		
+		&__eula {
+			width: 100%;
+			text-align: center;
+		}
+
+		&__made-by-column {
+			margin: 10px 0;
+		}
 	}
 }

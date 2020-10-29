@@ -39,4 +39,20 @@
 		font-size: 1.4285714285714286em;
 		line-height: 1em;
 	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		padding: 30px 30px;
+		background: #161a26;
+
+		&__text {
+			font-size: 1.8em;
+		}
+
+		&__icon {
+			width: 50px;
+			height: 40px;
+			top: -17px;
+			left: -30px;
+		}
+	}
 }

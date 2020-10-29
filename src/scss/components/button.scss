@@ -30,4 +30,8 @@
 			padding-bottom: .02em;
 		}
 	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		font-size: 1.8em;
+	}
 }

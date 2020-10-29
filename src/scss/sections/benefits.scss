@@ -11,6 +11,10 @@
 	&--row-offset {
 		margin-top: 85px;
 	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		margin: 70px 0;
+	}
 }
 
 .card {

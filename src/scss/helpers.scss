@@ -13,7 +13,7 @@ $gutter: 12px;
 	
 		@for $column from 1 through $columns {
 			&-#{$column} {
-				flex-basis: colWidth($columns, $column);
+				width: colWidth($columns, $column);
 				padding: 0 $gutter;
 			}
 		}
@@ -82,15 +82,15 @@ $gutter: 12px;
 
 @media only screen and (max-width: $breakpoint-md) {
 	@include responsive('-md');
+}
+
+@media only screen and (max-width: $breakpoint-lg) {
+	@include responsive('-lg');
 
 	.container {
 		padding-left: 12px;
 		padding-right: 12px;
 	}
-}
-
-@media only screen and (max-width: $breakpoint-lg) {
-	@include responsive('-lg');
 }
 
 .nobreak {

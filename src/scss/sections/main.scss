@@ -39,6 +39,14 @@
 		margin-top: 24px;
 		margin-bottom: 48px;
 	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		background: var(--first-screen-background);
+
+		&__first-page {
+			height: 100vh;
+		}
+	}
 }
 
 .menu {
@@ -117,7 +125,7 @@
 			position: absolute;
 			top: 100%;
 			width: 100%;
-			font-size: 1.2em;
+			font-size: 1.5em;
 
 			background: var(--menu-gradient);
 			backdrop-filter: blur(4px);

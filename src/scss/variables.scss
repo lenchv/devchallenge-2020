@@ -20,6 +20,7 @@
 	--video-control: rgba(88, 98, 145, 0.3);
 
 	--first-screen-image: url('assets/images/first-screen-image.jpg');
+	--first-screen-background: linear-gradient(#d5dede,#fff, #fff);
 
 	--menu-gradient: linear-gradient(
 		270deg,
@@ -45,6 +46,7 @@
 		--grey: #515773;
 
 		--first-screen-image: url('assets/images/first-screen-image-black.jpg');
+		--first-screen-background: linear-gradient(#262A3F,  #161926);
 
 		--menu-gradient: linear-gradient(
 			270deg,

@@ -1,6 +1,5 @@
-@import 'reset.scss';
-@import 'helpers.scss';
 @import 'common.scss';
+@import 'helpers.scss';
 @import './sections/main.scss';
 @import './sections/benefits.scss';
 @import './sections/quote.scss';
@@ -9,7 +8,3 @@
 @import './sections/reviews.scss';
 @import './sections/contact.scss';
 @import './sections/footer.scss';
-
-body {
-	background-color: var(--background);
-}
