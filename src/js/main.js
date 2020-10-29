@@ -10,7 +10,39 @@ const initializeYoutubeApi = () => new Promise((resolve, reject) => {
 	window.onYouTubeIframeAPIReady = resolve;
 });
 
-const initializePlayer = (iframeId, onPlayerStateChange, onError) => {
+const createIFrame = (data) => {
+	const iframe = document.createElement('iframe');
+
+	iframe.setAttribute("id", data.id);
+	iframe.setAttribute("width", data.width);
+	iframe.setAttribute("height", data.height);
+	iframe.setAttribute("src", data.src);
+	iframe.setAttribute("allow", data.allow);
+	iframe.setAttribute("class", data.class);
+
+	return iframe;
+};
+
+const insertVideo = (id) => new Promise((resolve, reject) => {
+	const videoContainer = document.querySelector('.player__iframe-container');
+	const iframe = createIFrame({
+		id: id,
+		width: "812",
+		height: "502",
+		src: "https://www.youtube.com/embed/vnbN9V_2Guk?enablejsapi=1&&autohide=1=0&controls=0&modestbranding=1",
+		allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+		class: "player__iframe--hidden",
+	});
+
+	videoContainer.appendChild(iframe);
+
+	iframe.onload = () => {
+		resolve(iframe);
+	};
+	iframe.onerror = reject;
+});
+
+const initializePlayer = (iframeId, onPlayerStateChange) => {
 	let player;
 
 	return () => Promise.resolve().then(
@@ -30,7 +62,7 @@ const initializePlayer = (iframeId, onPlayerStateChange, onError) => {
 					'onReady': () => {
 						resolve(player);
 					},
-					'onError': onError,
+					'onError': reject,
 					'onStateChange': onPlayerStateChange
 				}
 			});
@@ -43,8 +75,7 @@ const initializePlayer = (iframeId, onPlayerStateChange, onError) => {
 const initializeVideo = () => {
 	const play = document.querySelector('.player__control--play');
 	const screensaver = document.querySelector('.player__screen-placeholder');
-	const iframe = document.getElementById('video');
-	let error = false;
+	let iframe;
 
 	const onPlayerStateChange = (event) => {
 		if (
@@ -56,12 +87,20 @@ const initializeVideo = () => {
 		}
 	};
 
-	const getPlayer = initializePlayer('video', onPlayerStateChange, () => {
-		error = true;
-	});
+	const getPlayer = initializePlayer('video', onPlayerStateChange);
 
 	play.addEventListener('click', () => {
-		getPlayer().then(player => {
+		Promise.resolve().then(() => {
+			if (iframe) {
+				return iframe;
+			}
+
+			return insertVideo('video');
+		}).then(frame => {
+			iframe = frame;
+
+			return getPlayer();
+		}).then(player => {
 			screensaver.style.display = 'none';
 			play.style.display = 'none';
 			iframe.classList.remove('player__iframe--hidden');
