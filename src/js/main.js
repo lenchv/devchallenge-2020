@@ -144,17 +144,23 @@ const initializeSlider = () => {
 	});
 };
 
-const toggleTheme = () => {
-	const blackThemeClass = 'theme-is-black';
-
-	const button = document.getElementById('theme-button');
+const toggleClass = (controlId, className, element) => {
+	const button = document.getElementById(controlId);
 	button.addEventListener('change', (e) => {
 		if (e.target.checked) {
-			document.body.classList.add(blackThemeClass);
+			element.classList.add(className);
 		} else {
-			document.body.classList.remove(blackThemeClass);
+			element.classList.remove(className);
 		}
 	});
+};
+
+const toggleTheme = () => {
+	toggleClass('theme-button', 'theme-is-black', document.body);
+};
+
+const toggleMenu = () => {
+	toggleClass('menu-button', 'navigation--show', document.querySelector('.navigation'));
 };
 
 const svgPollyfill = () => {
@@ -179,5 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	initializeSlider();
 	setNotEmptyInputs();
 	toggleTheme();
+	toggleMenu();
 	svgPollyfill();
 });

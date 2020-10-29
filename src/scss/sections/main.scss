@@ -60,7 +60,8 @@
 		position: relative;
 		z-index: 1;
 
-		padding: 24px 0;
+		padding-top: 24px;
+		padding-bottom: 24px;
 	}
 
 	&__logo {
@@ -77,11 +78,23 @@
 	&__theme-button {
 		text-align: right;
 	}
+
+	&__mobile-button.menu-button {
+		display: none;
+	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		&__mobile-button.menu-button {
+			display: inline-block;
+		}
+	}
 }
 
 .navigation {
-	padding: 4px 0;
-	text-align: right;
+	&__container {
+		padding: 4px 0;
+		text-align: right;
+	}
 
 	&__link {
 		color: var(--primary-dark);
@@ -97,9 +110,28 @@
 			color: var(--primary-light);
 		}
 	}
+
+	@media only screen and (max-width: $breakpoint-md) {
+		&--show.navigation {
+			display: block;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			font-size: 1.2em;
+
+			background: var(--menu-gradient);
+			backdrop-filter: blur(4px);
+		}
+
+		&__link {
+			display: block;
+			text-align: left;
+			padding: 6px 0;
+		}
+	}
 }
 
-.theme-button {
+.menu-button {
 	display: inline-block;
 	width: 32px;
 	height: 32px;

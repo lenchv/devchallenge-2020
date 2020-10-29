@@ -82,6 +82,11 @@ $gutter: 12px;
 
 @media only screen and (max-width: $breakpoint-md) {
 	@include responsive('-md');
+
+	.container {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
 }
 
 @media only screen and (max-width: $breakpoint-lg) {

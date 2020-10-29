@@ -19,36 +19,42 @@
                 <div class="menu__blur"></div>
                 <div class="menu__container container">
                     <div class="row">
-                        <div class="menu__logo col-2 col-md-10">
+                        <div class="menu__logo col-2 col-md-6">
                             <svg class="menu__logo-image"><use xlink:href="assets/icons/icons.svg#logo"></use></svg>
                         </div>
-                        <div class="col-10 hidden-md">
-                            <div class="row">
-                                <div class="col-11">
-                                    <nav class="menu__navigation navigation">
-                                        <a href="#" class="navigation__link">Home</a>
-                                        <a href="#" class="navigation__link">About</a>
-                                        <a href="#" class="navigation__link">Products</a>
-                                        <a href="#" class="navigation__link">Use Cases</a>
-                                        <a href="#" class="navigation__link">Pricing</a>
-                                        <a href="#" class="navigation__link">Resources</a>
-                                    </nav>
-                                </div>
-                                <div class="col-1 menu__theme-button">
-                                    <span class="theme-button">
-                                        <input type="checkbox" id="theme-button" class="theme-button__checkbox">
-                                        <label for="theme-button" class="theme-button__label">
-                                            <svg class="theme-button__icon theme-button__icon--sun">
-                                                <use xlink:href="assets/icons/icons.svg#sun-icon"></use>
-                                            </svg>
-                                            <svg class="theme-button__icon theme-button__icon--moon">
-                                                <use xlink:href="assets/icons/icons.svg#icon-moon"></use>
-                                            </svg>
-                                        </label>
-                                    </span>
-                                </div>
-                            </div>
-
+                        <div class="col-9 hidden-md navigation">
+                            <nav class="menu__navigation navigation__container">
+                                <a href="#" class="navigation__link">Home</a>
+                                <a href="#" class="navigation__link">About</a>
+                                <a href="#" class="navigation__link">Products</a>
+                                <a href="#" class="navigation__link">Use Cases</a>
+                                <a href="#" class="navigation__link">Pricing</a>
+                                <a href="#" class="navigation__link">Resources</a>
+                            </nav>
+                        </div>
+                        <div class="col-1 col-md-6 menu__theme-button">
+                            <span class="menu-button">
+                                <input type="checkbox" id="theme-button" class="menu-button__checkbox">
+                                <label for="theme-button" class="menu-button__label">
+                                    <svg class="menu-button__icon menu-button__icon--sun">
+                                        <use xlink:href="assets/icons/icons.svg#sun-icon"></use>
+                                    </svg>
+                                    <svg class="menu-button__icon menu-button__icon--moon">
+                                        <use xlink:href="assets/icons/icons.svg#icon-moon"></use>
+                                    </svg>
+                                </label>
+                            </span>
+                            <span class="menu-button menu__mobile-button">
+                                <input type="checkbox" id="menu-button" class="menu-button__checkbox">
+                                <label for="menu-button" class="menu-button__label">
+                                    <svg class="menu-button__icon menu-button__icon--sun">
+                                        <use xlink:href="assets/icons/icons.svg#menu"></use>
+                                    </svg>
+                                    <svg class="menu-button__icon menu-button__icon--moon">
+                                        <use xlink:href="assets/icons/icons.svg#close"></use>
+                                    </svg>
+                                </label>
+                            </span>
                         </div>
                     </div>
                 </div>
