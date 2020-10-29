@@ -1,3 +1,4 @@
+const svgxuse = require('svgxuse');
 
 const initializeYoutubeApi = () => new Promise((resolve, reject) => {
 	const tag = document.createElement('script');
@@ -75,6 +76,8 @@ const initializePlayer = (iframeId, onPlayerStateChange) => {
 const initializeVideo = () => {
 	const play = document.querySelector('.player__control--play');
 	const screensaver = document.querySelector('.player__screen-placeholder');
+	const playIcon = document.querySelector('.player__icon--play');
+	const preloader = document.querySelector('.player__icon--preloader');
 	let iframe;
 
 	const onPlayerStateChange = (event) => {
@@ -90,6 +93,8 @@ const initializeVideo = () => {
 	const getPlayer = initializePlayer('video', onPlayerStateChange);
 
 	play.addEventListener('click', () => {
+		preloader.classList.remove('player__icon--hidden');
+		playIcon.classList.add('player__icon--hidden');
 		Promise.resolve().then(() => {
 			if (iframe) {
 				return iframe;
@@ -104,6 +109,8 @@ const initializeVideo = () => {
 			screensaver.style.display = 'none';
 			play.style.display = 'none';
 			iframe.classList.remove('player__iframe--hidden');
+			preloader.classList.add('player__icon--hidden');
+			playIcon.classList.remove('player__icon--hidden');
 			player.playVideo();
 		}).catch(error => {
 			console.error(error);
@@ -132,7 +139,7 @@ const updateArrowState = (arrow, condition) => {
 };
 
 const setNotEmptyInputs = () => {
-	document.querySelectorAll('.form__input').forEach(input => {
+	[].forEach.call(document.querySelectorAll('.form__input'), input => {
 		input.addEventListener('change', (e) => {
 			if (e.target.value) {
 				e.target.classList.add('form__input--not-empty');
@@ -228,5 +235,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	setNotEmptyInputs();
 	toggleTheme();
 	toggleMenu();
-	svgPollyfill();
 });
