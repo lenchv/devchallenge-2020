@@ -229,10 +229,17 @@ const svgPollyfill = () => {
 	});
 };
 
+const detectIE = () => {
+	if (window.MSInputMethodContext && document.documentMode) {
+		document.body.classList.add('ie-11');
+	}
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 	initializeVideo();
 	initializeSlider();
 	setNotEmptyInputs();
 	toggleTheme();
 	toggleMenu();
+	detectIE();
 });
