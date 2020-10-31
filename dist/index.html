@@ -28,39 +28,43 @@
                         <div class="menu__logo col-2 col-md-6">
                             <svg class="menu__logo-image"><use xlink:href="assets/icons/icons.svg#logo"></use></svg>
                         </div>
-                        <div class="col-9 hidden-md navigation">
-                            <nav class="menu__navigation navigation__container">
-                                <a href="#" class="navigation__link">Home</a>
-                                <a href="#" class="navigation__link">About</a>
-                                <a href="#" class="navigation__link">Products</a>
-                                <a href="#" class="navigation__link">Use Cases</a>
-                                <a href="#" class="navigation__link">Pricing</a>
-                                <a href="#" class="navigation__link">Resources</a>
-                            </nav>
-                        </div>
-                        <div class="col-1 col-md-6 menu__theme-button">
-                            <span class="menu-button">
-                                <input type="checkbox" id="theme-button" class="menu-button__checkbox">
-                                <label for="theme-button" class="menu-button__label">
-                                    <svg class="menu-button__icon menu-button__icon--sun">
-                                        <use xlink:href="assets/icons/icons.svg#sun-icon"></use>
-                                    </svg>
-                                    <svg class="menu-button__icon menu-button__icon--moon">
-                                        <use xlink:href="assets/icons/icons.svg#icon-moon"></use>
-                                    </svg>
-                                </label>
-                            </span>
-                            <span class="menu-button menu__mobile-button">
-                                <input type="checkbox" id="menu-button" class="menu-button__checkbox">
-                                <label for="menu-button" class="menu-button__label">
-                                    <svg class="menu-button__icon menu-button__icon--sun">
-                                        <use xlink:href="assets/icons/icons.svg#menu"></use>
-                                    </svg>
-                                    <svg class="menu-button__icon menu-button__icon--moon">
-                                        <use xlink:href="assets/icons/icons.svg#close"></use>
-                                    </svg>
-                                </label>
-                            </span>
+                        <div class="col-10 col-md-6">
+                            <div class="row">
+                                <div class="navigation navigation--column col-11 hidden-md">
+                                    <nav class="menu__navigation navigation__container">
+                                        <a href="#" class="navigation__link">Home</a>
+                                        <a href="#" class="navigation__link">About</a>
+                                        <a href="#" class="navigation__link">Products</a>
+                                        <a href="#" class="navigation__link">Use Cases</a>
+                                        <a href="#" class="navigation__link">Pricing</a>
+                                        <a href="#" class="navigation__link">Resources</a>
+                                    </nav>
+                                </div>
+                                <div class="col-1 col-md-12 menu__theme-button">
+                                    <span class="menu-button">
+                                        <input type="checkbox" id="theme-button" class="menu-button__checkbox">
+                                        <label for="theme-button" class="menu-button__label">
+                                            <svg class="menu-button__icon menu-button__icon--sun">
+                                                <use xlink:href="assets/icons/icons.svg#sun-icon"></use>
+                                            </svg>
+                                            <svg class="menu-button__icon menu-button__icon--moon">
+                                                <use xlink:href="assets/icons/icons.svg#icon-moon"></use>
+                                            </svg>
+                                        </label>
+                                    </span>
+                                    <span class="menu-button menu__mobile-button">
+                                        <input type="checkbox" id="menu-button" class="menu-button__checkbox">
+                                        <label for="menu-button" class="menu-button__label">
+                                            <svg class="menu-button__icon menu-button__icon--moon">
+                                                <use xlink:href="assets/icons/icons.svg#menu"></use>
+                                            </svg>
+                                            <svg class="menu-button__icon menu-button__icon--sun">
+                                                <use xlink:href="assets/icons/icons.svg#close"></use>
+                                            </svg>
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +112,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="sales-list__item">
+                                        <li class="sales-list__item sales-list__item--last">
                                             <div class="sales-item">
                                                 <div class="sales-item__title">
                                                     12
@@ -164,7 +168,7 @@
                         <div class="col-6 col-md-12">
                             <div class="benefits__card card">
                                 <h2 class="card__title">
-                                    The best <i class="card__title--keyword">payments solutions</i>
+                                    The best <i class="card__title--keyword">payments<br>solutions</i>
                                 </h2>
                                 <p class="card__content">
                                     For all stablecoin payments, from point-of-sale transactions to website solutions.
@@ -208,11 +212,11 @@
                                 <div class="player__iframe">
                                     <div class="player__iframe-container">
                                     </div>
-                                    <img class="player__screen-placeholder" alt="video" src="assets/images/screensaver-video.jpg" />
-                                    <button class="player__control player__control--play" aria-label="PLAY">
-                                        <svg class="player__icon"><use xlink:href="assets/icons/icons.svg#play"></use></svg>
-                                    </button>
                                 </div>
+                                <img class="player__screen-placeholder" alt="video" src="assets/images/screensaver-video.jpg" />
+                                <button class="player__control player__control--play" aria-label="PLAY">
+                                    <svg class="player__icon"><use xlink:href="assets/icons/icons.svg#play"></use></svg>
+                                </button>
                             </div>
                         </div>
                         <div class="video__description">
@@ -418,7 +422,7 @@
             <section id="contact-sales" class="contact">
                 <div class="container contact__container">
                     <div class="row row-md-vertical">
-                        <div class="col-6 col-md-12">
+                        <div class="col-7 col-md-12">
                             <h4 class="contact__title">
                                 Contact&nbsp;&nbsp;<i class="contact__title--keyword">our sales team</i>
                             </h4>
@@ -426,7 +430,7 @@
                                 Our team is happy to answer your sales questions.<br>Fill out the form and we’ll be in touch as soon as possible.
                             </p>
                         </div>
-                        <div class="col-6 col-md-12">
+                        <div class="col-5 col-md-12">
                             <form action="#" class="contact__form form">
                                 <div class="form__row">
                                     <input type="text" class="form__input" id="your_name" required>

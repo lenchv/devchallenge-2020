@@ -61,7 +61,14 @@
 	}
 
 	&__screen {
-		width: 100%;
+		position: relative;
+		width: 812px;
+		height: 502px;
+
+		@media only screen and (max-width: $breakpoint-md) {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&__control {
@@ -75,7 +82,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin-left: -60px;
+		margin-left: -43px;
 		margin-top: -60px;
 		cursor: pointer;
 

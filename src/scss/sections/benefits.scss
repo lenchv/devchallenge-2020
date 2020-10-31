@@ -2,14 +2,14 @@
 @import '../helpers.scss';
 
 .benefits {
-	margin: 140px 0;
+	margin: 138px 0 97px 0;
 
 	&__card {
 		margin: 0 41px;
 	}
 
 	&--row-offset {
-		margin-top: 85px;
+		margin-top: 90px;
 	}
 
 	@media only screen and (max-width: $breakpoint-md) {

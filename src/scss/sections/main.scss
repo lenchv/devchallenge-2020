@@ -4,14 +4,14 @@
 	width: 100%;
 
 	background-image: var(--first-screen-image);
-	background-size: cover;
+	background-size: 100%;
 	background-position: center top;
 	background-repeat: no-repeat;
 
 	overflow: hidden;
 
 	&__content {
-		margin: 158px 0;
+		margin: 155px 0;
 	}
 
 	&__header {
@@ -99,8 +99,13 @@
 }
 
 .navigation {
+	&--column.col-11 {
+		padding-right: 6px;
+	}
+
 	&__container {
 		padding: 4px 0;
+		margin: 0 -16px;
 		text-align: right;
 	}
 
@@ -112,7 +117,7 @@
 		font-weight: 400;
 		text-decoration: none;
 
-		padding: 0 16px;
+		padding: 0 17px;
 
 		&:hover {
 			color: var(--primary-light);
@@ -124,11 +129,16 @@
 			display: block;
 			position: absolute;
 			top: 100%;
+			left: 0;
 			width: 100%;
 			font-size: 1.5em;
 
 			background: var(--menu-gradient);
 			backdrop-filter: blur(4px);
+		}
+
+		&__container {
+			margin: auto;
 		}
 
 		&__link {
@@ -167,11 +177,11 @@
 		fill: #fff;
 	}
 
-	&__checkbox:checked + &__label > &__icon--moon {
+	&__checkbox:checked + &__label > &__icon--sun {
 		display: block;
 	}
 
-	&__checkbox:not(:checked) + &__label > &__icon--sun {
+	&__checkbox:not(:checked) + &__label > &__icon--moon {
 		display: block;
 	}
 
@@ -203,16 +213,21 @@
 
 	&__item:not(:last-child):after {
 		content: '';
-		margin: 42px auto 21px auto;
+		margin: 25px auto 40px auto;
 		display: block;
 		border-bottom: 1px solid var(--tint);
 		width: 82px;
+	}
+
+	&__item--last {
+		margin-top: 24px;
 	}
 }
 
 .sales-item {
 	text-align: center;
 	padding: 0 26px;
+	margin-top: 28px;
 	box-sizing: content-box;
 
 	&__title {
