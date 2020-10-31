@@ -1,0 +1,241 @@
+@import './variables.scss';
+
+
+@mixin text-ie11 {
+	color: #{$primary-dark-dark};
+}
+
+@mixin title-ie11 {
+	color: #{$primary-dark-dark};
+
+	&--keyword {
+		color: #{$tint-dark};
+	}
+}
+
+body.ie-11 {
+    &.theme-is-black {
+        background-color: #{$background-dark};
+
+        .main {
+            background: #{$first-screen-image-dark};
+
+            &__header {
+                color: #{$primary-dark-dark};
+                &-keyword {
+			        color: #{$tint-dark};
+                }
+            }
+
+            &__description {
+                @include text-ie11;
+            }
+
+            @media only screen and (max-width: $breakpoint-md) {
+                background: #{$first-screen-background-dark};
+            }
+        }
+
+        .menu {
+            &__blur {
+                background: #{$menu-gradient-dark};
+            }
+        }
+        
+        .navigation {
+            &__link {
+                color: #{$primary-dark-dark};
+
+                &:hover {
+                    color: #{$primary-light-light};
+                }
+            }
+
+            
+            @media only screen and (max-width: $breakpoint-md) {
+                &--show.navigation {
+                    background: #{$menu-gradient-dark};
+                }
+            }
+        }
+
+        .menu-button {
+            background-color: #{$primary-dark-03-dark};
+        }
+
+        .sales-info {
+            &__text {
+                @include text-ie11;
+            }
+        }
+
+        .sales-list {
+            &__item:not(:last-child):after {
+                border-bottom-color: #{$tint-dark};
+            }
+        }
+        
+        .sales-item {
+            &__title {
+                color: #{$primary-dark-dark};
+
+                &--dollar {
+                    color: #{$grey-dark};
+                }
+            }
+            
+            &__description {
+                @include text-ie11;
+            }
+        }
+
+        .button {
+            color: #{$secondary-dark};
+
+            &:after {
+                background: #{$secondary-dark};
+            }
+        }
+
+        .slider-controls {
+            &__number {
+                color: #{$primary-dark-dark};
+            }
+
+            &__total {
+                color: #{$tint-dark};
+            }
+
+            &__arrow {
+                fill: #{$tint-dark};
+                &--disabled {
+                    fill: #{$black-dark};
+                }
+            }
+        }
+
+        .info-box {
+            &__content {
+                background-color: #{$info-box-background-dark};
+            }
+        }
+
+        .card {
+            border-top-color: #{$grey-dark};
+
+            &__title {
+                @include title-ie11;
+            }
+
+            &__content {
+                @include text-ie11;
+            }
+        }
+
+        .quote {
+            color: #{$primary-light-light};
+
+            &__icon {
+                stroke: #{$secondary-dark};
+            }
+        }
+
+        .video {
+            &__title {
+                @include title-ie11;
+            }
+
+            &__text {
+                @include text-ie11;
+            }
+        }
+
+        .player {
+            border-color: #{$grey-dark};
+
+            &:before,&:after {
+                border-color: #{$grey-dark};
+            }
+
+            &__control {
+                background: #{$video-control-dark};
+            }
+
+            &__icon {
+                #spinner,
+                &--play {
+                    fill: #{$video-icon-dark};
+                }
+            }
+        }
+
+        .features {
+            &__button {
+                border-color: #{$grey-dark};
+            }
+        }
+
+        .feature {
+            &__title {
+                color: #{$primary-dark-dark};
+            }
+
+            &__list {
+                &-item {
+                    color: #{$primary-dark-08-dark};
+                }
+            }
+        }
+
+        .reviews {
+            &__title {
+                @include title-ie11;
+            }
+
+            &__description {
+                @include text-ie11;
+            }
+        }
+
+        .contact {
+            &__container {
+                border-top-color: #{$grey-dark};
+            }
+        
+            &__title {
+                @include title-ie11;
+            }
+        
+            &__text {
+                @include text-ie11;
+            }
+        }
+        
+        .form {
+            &__input {
+                color: #{$primary-dark-dark};
+                border-bottom-color: #{$primary-dark-01-dark};
+            }
+        
+            &__label {
+                color: #{$contact-text-dark};
+            }
+        }
+
+        .footer {
+            &__container {
+                border-top-color: #{$grey-dark};
+            }
+
+            &__made-by,
+            &__copyright {
+                color: #{$primary-dark-06-dark};
+            }
+
+            &__link {
+                color: #{$primary-dark-dark};
+            }
+        }
+    }
+}
+
